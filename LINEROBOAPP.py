@@ -5,13 +5,13 @@
 from flask import Flask, request, abort
 
 from linebot import (
-    LineBotApi, WebhookHandler
+	LineBotApi, WebhookHandler
 )
 from linebot.exceptions import (
-    InvalidSignatureError
+	InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+	MessageEvent, TextMessage, TextSendMessage,
 )
 
 app = Flask(__name__)
@@ -22,21 +22,21 @@ handler = WebhookHandler('e735cd54613be84958bbb5ce24da7f6b')
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
+	# get X-Line-Signature header value
+	signature = request.headers['X-Line-Signature']
 
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
+	# get request body as text
+	body = request.get_data(as_text=True)
+	app.logger.info("Request body: " + body)
 
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        print("Invalid signature. Please check your channel access token/channel secret.")
-        abort(400)
+	# handle webhook body
+	try:
+		handler.handle(body, signature)
+	except InvalidSignatureError:
+		print("Invalid signature. Please check your channel access token/channel secret.")
+		abort(400)
 
-    return 'OK'
+	return 'OK'
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -50,12 +50,12 @@ def handle_message(event):
 	elif msg == 'LOVE beer':
 		r = 'keep noticed'
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=r))
+	line_bot_api.reply_message(
+		event.reply_token,
+		TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
 
-    
+	
