@@ -42,6 +42,14 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 	msg = event.message.text
+	r = '請你再說一次'
+
+	if msg == 'LOVE strong':
+		r = 'go get it'
+
+	elif msg == 'LOVE beer':
+		r = 'keep noticed'
+		 
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='Danny Danny'))
