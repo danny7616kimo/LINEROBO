@@ -46,8 +46,8 @@ def handle_message(event):
 
 	if '貼圖' in msg:
 		sticker_message = StickerSendMessage(
-	    package_id='1',
-	    sticker_id='1'
+		package_id='1',
+		sticker_id='1'
 	)
 	line_bot_api.reply_message(
 	event.reply_token,
@@ -57,10 +57,10 @@ def handle_message(event):
 
 	if msg in ['strong', '壯']:
 		r = 'go get it'
-	elif ['預算' or '錢' or '價'] in msg:
+	elif '錢' in msg:
 		r = '衝阿 專心工作'
-	elif ['預約' or '晚上' or '空位'] in msg:
-		r = '請問是要定位嗎? 幾個人?'
+	elif '甜點' in msg:
+		r = '還吃?!'
 
 	line_bot_api.reply_message(
 		event.reply_token,
