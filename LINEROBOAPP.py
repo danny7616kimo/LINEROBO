@@ -49,10 +49,10 @@ def handle_message(event):
 
 	elif msg == 'LOVE beer':
 		r = 'keep noticed'
-		 
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Danny Danny'))
+        TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
