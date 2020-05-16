@@ -44,11 +44,12 @@ def handle_message(event):
 	msg = event.message.text
 	r = '請你再說一次'
 
-	if msg == 'LOVE strong':
+	if msg in ['strong', '壯']:
 		r = 'go get it'
-
-	elif msg == 'LOVE beer':
-		r = 'keep noticed'
+	elif msg in ['預算', '錢', '價']:
+		r = '衝阿 專心工作'
+	elif msg in ['予約', '晚上', '空位']:
+		r = '請問是要定位嗎? 幾個人?'
 
 	line_bot_api.reply_message(
 		event.reply_token,
