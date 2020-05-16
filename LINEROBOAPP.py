@@ -63,6 +63,16 @@ def handle_message(event):
 	elif '甜點' in msg:
 		r = '還吃?!'
 
+	elif if '貼圖' in msg:
+		sticker_message = StickerSendMessage(
+		package_id='1',
+		sticker_id='1'
+	)
+	line_bot_api.reply_message(
+	event.reply_token,
+	sticker_message)	
+	return
+
 	line_bot_api.reply_message(
 		event.reply_token,
 		TextMessage(text=r))
