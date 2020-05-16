@@ -44,21 +44,22 @@ def handle_message(event):
 	msg = event.message.text
 	r = '請你再說一次'
 
-	if '貼圖' in msg:
-		sticker_message = StickerSendMessage(
-		package_id='1',
-		sticker_id='1'
-	)
-	line_bot_api.reply_message(
-	event.reply_token,
-	sticker_message)	
-	return
+	#if '貼圖' in msg:
+	#E	sticker_message = StickerSendMessage(
+	#	package_id='1',
+	#	sticker_id='1'
+	#)
+	#line_bot_api.reply_message(
+	#event.reply_token,
+	#sticker_message)	
+	#return
 
 
 	if msg in ['strong', '壯']:
 		r = 'go get it'
 	elif '錢' in msg:
 		r = '衝阿 專心工作'
+
 	elif '甜點' in msg:
 		r = '還吃?!'
 
