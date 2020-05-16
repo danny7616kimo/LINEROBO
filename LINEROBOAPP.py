@@ -46,9 +46,9 @@ def handle_message(event):
 
 	if msg in ['strong', '壯']:
 		r = 'go get it'
-	elif msg in ['預算', '錢', '價']:
+	elif ['預算', '錢', '價'] in msg:
 		r = '衝阿 專心工作'
-	elif msg in ['予約', '晚上', '空位']:
+	elif ['予約', '晚上', '空位'] in msg:
 		r = '請問是要定位嗎? 幾個人?'
 
 	line_bot_api.reply_message(
